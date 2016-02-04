@@ -10,7 +10,7 @@ def generate_trigram(words):
     for i in xrange(len(words) - 2):
         yield (words[i], words[i+1], words[i+2])
 
-for line in fh.readlines():
+for line in f.readlines():
     words = line.split(' ')
     for word1, word2, word3 in generate_trigram(words):
         key = (word1, word2)
