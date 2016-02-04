@@ -1,0 +1,1 @@
+python ../python/get_tweets.py > ../data/tweets.txt
