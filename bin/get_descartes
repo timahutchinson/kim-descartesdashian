@@ -1,0 +1,8 @@
+python ../python/get_descartes.py > ../data/prep.txt
+
+# Add "BEGIN NOW" and "END" to all lines again
+cat ../data/prep.txt | sed 's/^/BEGIN NOW /' > ../data/prep2.txt
+cat ../data/prep2.txt | sed 's/$/ END/' > descartes_sentences.txt
+
+rm ../data/prep.txt
+rm ../data/prep2.txt
