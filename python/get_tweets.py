@@ -5,10 +5,16 @@ batches of 200. Ignores all tweets starting with "RT" and strips links.
 from twython import Twython
 import time
 
-CONSUMER_KEY = ''
-CONSUMER_SECRET = ''
-ACCESS_KEY = ''
-ACCESS_SECRET = ''
+# Read data/twitter_tokens.txt, and get appropriate tokens out
+with open('../data/twitter_tokens.txt') as f:
+    tokens = f.readlines()
+
+CONSUMER_KEY = tokens[0]
+CONSUMER_SECRET = tokens[1]
+ACCESS_KEY = tokens[2]
+ACCESS_SECRET = tokens[3]
+
+print CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
 
 twitter = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET)
 lis = [695067860435992576] ## Latest starting tweet id
