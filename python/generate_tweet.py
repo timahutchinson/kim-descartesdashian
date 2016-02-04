@@ -10,7 +10,7 @@ def generate_tweet():
 
     while True:
         sword1, sword2 = sword2, random.choice(chain[(sword1, sword2)])
-        if sword2 == 'END':
+        if sword2 == 'END\n':
             break
         new_tweet.append(sword2)
 
