@@ -9,12 +9,10 @@ import time
 with open('../data/twitter_tokens.txt') as f:
     tokens = f.readlines()
 
-CONSUMER_KEY = tokens[0]
-CONSUMER_SECRET = tokens[1]
-ACCESS_KEY = tokens[2]
-ACCESS_SECRET = tokens[3]
-
-print CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET
+CONSUMER_KEY = tokens[0].strip('\n')
+CONSUMER_SECRET = tokens[1].strip('\n')
+ACCESS_KEY = tokens[2].strip('\n')
+ACCESS_SECRET = tokens[3].strip('\n')
 
 twitter = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET)
 lis = [695067860435992576] ## Latest starting tweet id
