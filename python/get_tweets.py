@@ -9,13 +9,17 @@ import time
 with open('../data/twitter_tokens.txt') as f:
     tokens = f.readlines()
 
+# Read data/tweet_id.txt to get id of most recent tweet
+with open('../data/tweet_id.txt') as f:
+    tweet_id = eval(f.readlines()[0].strip('\n'))
+
 CONSUMER_KEY = tokens[0].strip('\n')
 CONSUMER_SECRET = tokens[1].strip('\n')
 ACCESS_KEY = tokens[2].strip('\n')
 ACCESS_SECRET = tokens[3].strip('\n')
 
 twitter = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET)
-lis = [695067860435992576] ## Latest starting tweet id
+lis = [tweet_id]
 for i in range(0,16):
     user_timeline = twitter.get_user_timeline(screen_name='KimKardashian', count=200,
                                               include_retweets=False, max_id=lis[-1])
@@ -38,4 +42,4 @@ for i in range(0,16):
                 lis.append(tweet['id'])
             except UnicodeEncodeError:
                 pass
-    time.sleep(301) ## 5 minutes betwen api calls
+#    time.sleep(301) ## 5 minutes betwen api calls
