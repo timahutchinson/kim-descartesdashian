@@ -45,7 +45,6 @@ for tweet in user_timeline:
                     break
 
             this_tweet = ' '.join(words)
-            if this_tweet == 'Vote for Kanye!!!': import pdb; pdb.set_trace()
             print this_tweet
         except UnicodeEncodeError:
             pass
